@@ -90,7 +90,7 @@
   color: var(--musgo);
   font-weight: 500;
 }
-.nb-links { display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
+.nb-links { display: flex; gap: 1.4rem; align-items: center; }
 .nb-links a {
   font-size: 0.86rem;
   color: var(--corteza);
@@ -98,10 +98,46 @@
   white-space: nowrap;
 }
 .nb-links a:hover, .nb-links a.active { color: var(--acento); }
-@media (max-width: 860px) {
-  .nb-links { gap: 0.9rem; }
-  .nb-links a { font-size: 0.78rem; }
-  .nb-links a.nb-hide-sm { display: none; }
+
+/* Botón hamburguesa: oculto en desktop */
+.nb-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--bosque);
+  cursor: pointer;
+  padding: 0.4rem;
+  line-height: 0;
+}
+
+/* Panel desplegable móvil */
+.nb-mobile-panel {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  background: var(--hueso);
+  border-bottom: 1px solid rgba(27, 46, 35, 0.08);
+  box-shadow: 0 14px 30px rgba(27, 46, 35, 0.1);
+  padding: 0.5rem 1.5rem 1rem;
+}
+.nb-mobile-panel a {
+  padding: 0.9rem 0.2rem;
+  font-size: 1rem;
+  color: var(--corteza);
+  border-bottom: 1px solid rgba(27, 46, 35, 0.06);
+}
+.nb-mobile-panel a:last-child { border-bottom: none; }
+.nb-mobile-panel a.active { color: var(--acento); }
+
+@media (max-width: 768px) {
+  .nb-nav { position: sticky; }
+  .nb-links { display: none; }
+  .nb-menu-btn { display: inline-flex; align-items: center; }
+  .nb-mobile-panel { display: flex; }
+  .nb-brand-logo { height: 32px; }
 }
 
 /* ---------- Buttons ---------- */
