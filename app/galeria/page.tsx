@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Fotografías del Cerro de las Culebras: bosque de niebla, fauna, flora, senderos, comunidad y conservación.",
   alternates: { canonical: "/galeria" },
   openGraph: {
-    title: "Galería — Ruta de la Niebla",
+    title: "Galería — Senderito del Bosque de Niebla",
     description: "El Cerro de las Culebras en imágenes.",
     url: "/galeria",
     images: ["/og.jpg"],

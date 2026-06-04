@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE = "https://rutadelaniebla.org";
+const SITE = "https://senderitodebosquedeniebla.org";
 
 export const dynamic = "force-static";
 

@@ -17,43 +17,44 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE = "https://rutadelaniebla.org";
+const SITE = "https://senderitodebosquedeniebla.org";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "Ruta de la Niebla — Bosque de Niebla y Cerro de las Culebras",
-    template: "%s — Ruta de la Niebla",
+    default: "Senderito del Bosque de Niebla — Cerro de las Culebras, Coatepec",
+    template: "%s — Senderito del Bosque de Niebla",
   },
   description:
-    "Donde la niebla todavía recuerda. Iniciativa ciudadana de conservación del bosque de niebla de Coatepec y el Cerro de las Culebras: senderismo interpretativo, biblioteca digital y memoria comunitaria.",
-  applicationName: "Ruta de la Niebla",
+    "Donde la niebla todavía recuerda. Parque temático y sendero interpretativo del bosque de niebla en el ANP Cerro de las Culebras, Coatepec, Veracruz. Un proyecto de Ruta de la Niebla A.C.",
+  applicationName: "Senderito del Bosque de Niebla",
   authors: [{ name: "Ruta de la Niebla A.C." }],
   keywords: [
+    "Senderito del Bosque de Niebla",
     "bosque de niebla",
     "Cerro de las Culebras",
     "Coatepec",
     "Veracruz",
     "bosque mesófilo de montaña",
     "conservación",
-    "senderismo",
-    "Ruta de la Niebla",
+    "senderismo interpretativo",
+    "Ruta de la Niebla A.C.",
   ],
   openGraph: {
     type: "website",
-    siteName: "Ruta de la Niebla",
+    siteName: "Senderito del Bosque de Niebla",
     locale: "es_MX",
     url: SITE,
-    title: "Ruta de la Niebla — Bosque de Niebla y Cerro de las Culebras",
+    title: "Senderito del Bosque de Niebla — Cerro de las Culebras, Coatepec",
     description:
-      "Donde la niebla todavía recuerda. Conservación del bosque de niebla de Coatepec y el Cerro de las Culebras.",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Ruta de la Niebla — Cerro de las Culebras" }],
+      "Donde la niebla todavía recuerda. Parque temático y sendero interpretativo del bosque de niebla en el Cerro de las Culebras, Coatepec.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Senderito del Bosque de Niebla — Cerro de las Culebras" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ruta de la Niebla — Bosque de Niebla y Cerro de las Culebras",
+    title: "Senderito del Bosque de Niebla — Cerro de las Culebras, Coatepec",
     description:
-      "Donde la niebla todavía recuerda. Conservación del bosque de niebla de Coatepec.",
+      "Donde la niebla todavía recuerda. Sendero interpretativo del bosque de niebla en Coatepec.",
     images: ["/og.jpg"],
   },
 };

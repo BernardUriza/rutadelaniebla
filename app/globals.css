@@ -72,15 +72,16 @@
 .nb-brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.55rem;
   font-family: var(--serif);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--bosque);
   white-space: nowrap;
+  line-height: 1.05;
 }
-.nb-brand-logo { height: 36px; width: auto; display: block; }
-.nb-brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+.nb-brand-logo { height: 34px; width: auto; display: block; }
+.nb-brand-text { display: flex; flex-direction: column; }
 .nb-brand small {
   display: block;
   font-family: var(--sans);

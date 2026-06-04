@@ -32,7 +32,7 @@ export default function NieblaFooter() {
         </div>
       </div>
       <div className="nb-footer-bottom">
-        <span>© 2026 Ruta de la Niebla A.C. · ANP Cerro de las Culebras, Coatepec</span>
+        <span>© 2026 Senderito del Bosque de Niebla · un proyecto de Ruta de la Niebla A.C.</span>
         <span>El bosque necesita testigos.</span>
       </div>
     </footer>

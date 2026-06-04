@@ -21,8 +21,8 @@ export default function NieblaNav() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo-serpiente.png" alt="" className="nb-brand-logo" />
         <span className="nb-brand-text">
-          Ruta de la Niebla
-          <small>Coatepec · Veracruz</small>
+          Senderito del Bosque de Niebla
+          <small>Cerro de las Culebras · Coatepec</small>
         </span>
       </Link>
 

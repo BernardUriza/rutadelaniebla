@@ -1,4 +1,4 @@
-/* Datos de Ruta de la Niebla. Verificados en la presentación del colectivo
+/* Datos del Senderito del Bosque de Niebla. Verificados en la presentación del colectivo
    (public/pdf/presentacion-senderito-bosque-niebla.pdf) y su Facebook. */
 
 export type Stat = { value: number; label: string; suffix?: string };

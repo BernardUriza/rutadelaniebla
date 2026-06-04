@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Reserva ecológica de Coatepec a unos 1,325 m: bosque de niebla, más de cien especies de aves y la defensa ciudadana de uno de los ecosistemas más amenazados de México.",
   alternates: { canonical: "/cerro-de-las-culebras" },
   openGraph: {
-    title: "Cerro de las Culebras — Ruta de la Niebla",
+    title: "Cerro de las Culebras — Senderito del Bosque de Niebla",
     description: "Bosque de niebla, biodiversidad y la defensa de la reserva de Coatepec.",
     url: "/cerro-de-las-culebras",
     images: ["/og.jpg"],
