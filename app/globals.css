@@ -70,12 +70,17 @@
   border-bottom: 1px solid rgba(27, 46, 35, 0.08);
 }
 .nb-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: var(--serif);
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--bosque);
   white-space: nowrap;
 }
+.nb-brand-logo { height: 36px; width: auto; display: block; }
+.nb-brand-text { display: flex; flex-direction: column; line-height: 1.05; }
 .nb-brand small {
   display: block;
   font-family: var(--sans);

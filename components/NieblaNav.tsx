@@ -14,8 +14,12 @@ export default function NieblaNav() {
   return (
     <nav className="nb-nav">
       <Link href="/" className="nb-brand">
-        Ruta de la Niebla
-        <small>Coatepec · Veracruz</small>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logo-serpiente.png" alt="" className="nb-brand-logo" />
+        <span className="nb-brand-text">
+          Ruta de la Niebla
+          <small>Coatepec · Veracruz</small>
+        </span>
       </Link>
       <div className="nb-links">
         {LINKS.map((l) => (
