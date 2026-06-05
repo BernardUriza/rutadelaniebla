@@ -16,6 +16,7 @@ export default function NieblaFooter() {
         <div>
           <h4>Navega</h4>
           <Link href="/cerro-de-las-culebras">Cerro de las Culebras</Link>
+          <Link href="/creadores">Los creadores</Link>
           <Link href="/biblioteca">Biblioteca Digital</Link>
           <Link href="/galeria">Galería</Link>
           <Link href="/participa">Participa</Link>
