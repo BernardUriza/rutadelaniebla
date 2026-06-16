@@ -137,7 +137,37 @@ correcto — gratis, estático, sin servidor. No antes.
 - No es trabajo de kickoff: primero el diferenciador funcionando, luego una URL
   que toque un juez/usuario; la infra se estabiliza al final.
 
+## Validation gate antes del gasto (Lean — validado con evidencia)
+
+El gasto en el backend NO se aprueba por fe; se desbloquea por señales medibles,
+recogidas **gratis y sin backend** sobre el sitio estático actual. Fundamento:
+fake/painted-door test + smoke test Lean + The Mom Test (ver
+`/histerical-search` 2026-06-16).
+
+**Fase 0 — instrumentar gratis (ya implementada):**
+- Puerta falsa del asistente: burbuja «Pregúntale al guía 🌿» → modal «pronto,
+  ¿te avisamos?» + captura de correo (`components/PuertaFalsa.tsx`). El click y el
+  correo son la señal de demanda específica de la feature.
+- Cloudflare Web Analytics (cookieless, sin banner) para tráfico ambiente
+  (`NEXT_PUBLIC_CF_BEACON_TOKEN`). El correo de interés va a
+  `NEXT_PUBLIC_INTERES_ENDPOINT` si se configura; sin él, degrada a agradecimiento.
+
+**Umbrales (Bernard fija los números antes de medir):**
+| Señal | Fuente | Umbral propuesto |
+|-------|--------|------------------|
+| Tráfico mensual al sitio | Cloudflare WA | (definir) |
+| Clicks/correos en la puerta del asistente | PuertaFalsa | (definir) — la señal que más pesa |
+| Miguel produce contenido de verdad | conducta | entrega ≥2 blogs + las fotos/PDFs pendientes |
+
+**Regla:** medir intención sobre la feature específica (clicks en la puerta) >>
+pageviews genéricos. Con Miguel: transparencia, NO puerta falsa (es aliado, no
+demanda anónima — su morosidad actual con PDFs/fotos YA es el Mom Test del CMS).
+
+**Decisión de gasto:** solo si los umbrales se cumplen en una ventana definida →
+construir el backend (Opción A). Si no → no se gasta; se itera o se descarta.
+
 ## Estado
-Recomendación lista. **Falta el sí/no de Bernard** sobre romper lo estático y
-montar el backend fi-runner compartido. Hasta entonces, ambos ítems siguen
+Recomendación lista + Fase 0 (puerta falsa + analytics) implementada. **Falta el
+sí/no de Bernard** sobre (a) los umbrales concretos y (b) romper lo estático y
+montar el backend fi-runner cuando se cumplan. Hasta entonces, ambos ítems siguen
 Proposed en el backlog.
