@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import PuertaFalsa from "@/components/PuertaFalsa";
 import "./globals.css";
+
+const CF_BEACON_TOKEN = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -64,7 +68,18 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es-MX" className={`${cormorant.variable} ${inter.variable}`}>
-      <body className="niebla">{children}</body>
+      <body className="niebla">
+        {children}
+        <PuertaFalsa />
+        {CF_BEACON_TOKEN && (
+          <Script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: CF_BEACON_TOKEN })}
+            strategy="afterInteractive"
+          />
+        )}
+      </body>
     </html>
   );
 }

@@ -306,6 +306,41 @@
 @media (hover: none) { .nb-ig-frame:hover { transform: rotate(1deg); } }
 .nb-ig-frame iframe { display: block; width: 100%; border: 0; overflow: hidden; border-radius: 12px; }
 
+/* ---------- Puerta falsa (validación del asistente) ---------- */
+.nb-pf-bubble {
+  position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 50;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 1.1rem; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--acento); color: var(--hueso); font-family: var(--sans);
+  font-size: 0.9rem; font-weight: 500;
+  box-shadow: 0 10px 26px rgba(27,46,35,0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.nb-pf-bubble:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(27,46,35,0.34); }
+@media (max-width: 520px) { .nb-pf-bubble span { display: none; } .nb-pf-bubble { padding: 0.85rem; } }
+
+.nb-pf-overlay {
+  position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center;
+  padding: 1.2rem; background: rgba(27,46,35,0.45); backdrop-filter: blur(3px);
+}
+.nb-pf-modal {
+  position: relative; width: 100%; max-width: 420px;
+  background: var(--hueso); border: 1px solid var(--niebla); border-radius: 16px;
+  padding: 2rem 1.8rem; box-shadow: 0 24px 60px rgba(27,46,35,0.3);
+}
+.nb-pf-modal h3 { font-size: 1.6rem; margin: 0.5rem 0 0; }
+.nb-pf-modal p { font-size: 0.95rem; color: var(--corteza); opacity: 0.88; margin: 0.9rem 0 0; }
+.nb-pf-close {
+  position: absolute; top: 0.9rem; right: 0.9rem; background: none; border: 0; cursor: pointer;
+  color: var(--musgo); display: inline-flex;
+}
+.nb-pf-form { display: flex; gap: 0.6rem; margin-top: 1.4rem; flex-wrap: wrap; }
+.nb-pf-form input {
+  flex: 1; min-width: 0; padding: 0.65rem 0.9rem; border: 1px solid var(--niebla);
+  border-radius: 8px; font-family: var(--sans); font-size: 0.92rem; background: #fff;
+}
+.nb-pf-form input:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+
 /* ---------- Editorial (Cerro) ---------- */
 .nb-editorial { max-width: var(--prose); margin: 0 auto; }
 .nb-editorial p { font-size: 1.08rem; margin: 1.4rem 0; }
