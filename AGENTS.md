@@ -7,3 +7,4 @@ This version has breaking changes — APIs, conventions, and file structure may 
 # Reglas del proyecto (`.claude/rules/`)
 
 - [Visión — Asistente virtual de recorridos del Senderito](.claude/rules/asistente-virtual-senderito.md) — RAG conversacional para toda la familia, erudito del Senderito, servido con la cuota Claude Max (patrón insult-ai / free-intelligence). No construido aún; clonar lo canónico cuando se haga.
+- [Visión — CMS de blogs para Don Miguel](.claude/rules/cms-blogs-miguel.md) — editor de auto-publicación (patrón VHouse `/mi-pagina`) para que Miguel publique sus blogs. Rompe el modelo estático actual; comparte backend con el asistente. No construido aún.
