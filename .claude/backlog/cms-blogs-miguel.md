@@ -1,7 +1,10 @@
 # Visión — CMS de blogs para Don Miguel (auto-publicación)
 
-Visión de producto registrada por Bernard el 2026-06-16. Aún NO construida.
-Pareja de [[asistente-virtual-senderito]]: ambas comparten backend.
+Status: Proposed
+Proposed: 2026-06-16 by Bernard
+
+Backlog item (no es una rule) — gobernado por `backlog-handling`. Pareja de
+[[asistente-virtual-senderito]]: ambas comparten backend.
 
 ## Qué es
 

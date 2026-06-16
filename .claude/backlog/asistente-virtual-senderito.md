@@ -1,8 +1,11 @@
 # Visión — Asistente virtual de recorridos del Senderito
 
-Visión de producto registrada por Bernard el 2026-06-16. Aún NO construida —
-este documento fija el objetivo y la ruta canónica para cuando se implemente,
-para que no se reinvente ni se desvíe del tono.
+Status: Proposed
+Proposed: 2026-06-16 by Bernard
+
+Backlog item (no es una rule) — gobernado por `backlog-handling`. Fija el
+objetivo y la ruta canónica para cuando se implemente, para que no se reinvente
+ni se desvíe del tono.
 
 ## Qué es
 
