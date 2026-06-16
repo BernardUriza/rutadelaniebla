@@ -291,13 +291,20 @@
 .nb-doc .nb-doc-dl:hover { text-decoration: underline; }
 .nb-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tierra); border: 1px solid var(--niebla); border-radius: 999px; padding: 0.15rem 0.6rem; }
 
-/* ---------- Instagram embed ---------- */
+/* ---------- Instagram embed (patrón Veggie Slice / VHouse) ---------- */
 .nb-ig-frame {
-  width: 100%; max-width: 400px; margin: 0 auto;
-  background: #fff; border: 1px solid var(--niebla); border-radius: 14px;
-  overflow: hidden; box-shadow: 0 14px 34px rgba(27,46,35,0.12);
+  width: 100%; max-width: 384px; margin: 0 auto;
+  background: #fff; padding: 8px; border: 2px solid rgba(58,79,62,0.15);
+  border-radius: 20px; transform: rotate(1deg);
+  box-shadow: 0 16px 48px rgba(27,46,35,0.12), 0 6px 16px rgba(0,0,0,0.06);
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s cubic-bezier(0.16,1,0.3,1);
 }
-.nb-ig-frame iframe { display: block; width: 100%; border: 0; }
+.nb-ig-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 24px 60px rgba(27,46,35,0.18), 0 10px 24px rgba(0,0,0,0.10);
+}
+@media (hover: none) { .nb-ig-frame:hover { transform: rotate(1deg); } }
+.nb-ig-frame iframe { display: block; width: 100%; border: 0; overflow: hidden; border-radius: 12px; }
 
 /* ---------- Editorial (Cerro) ---------- */
 .nb-editorial { max-width: var(--prose); margin: 0 auto; }
