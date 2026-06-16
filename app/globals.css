@@ -291,6 +291,14 @@
 .nb-doc .nb-doc-dl:hover { text-decoration: underline; }
 .nb-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tierra); border: 1px solid var(--niebla); border-radius: 999px; padding: 0.15rem 0.6rem; }
 
+/* ---------- Instagram embed ---------- */
+.nb-ig-frame {
+  width: 100%; max-width: 400px; margin: 0 auto;
+  background: #fff; border: 1px solid var(--niebla); border-radius: 14px;
+  overflow: hidden; box-shadow: 0 14px 34px rgba(27,46,35,0.12);
+}
+.nb-ig-frame iframe { display: block; width: 100%; border: 0; }
+
 /* ---------- Editorial (Cerro) ---------- */
 .nb-editorial { max-width: var(--prose); margin: 0 auto; }
 .nb-editorial p { font-size: 1.08rem; margin: 1.4rem 0; }

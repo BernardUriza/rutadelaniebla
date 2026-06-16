@@ -6,14 +6,17 @@ import { press } from "@/lib/data";
 import NieblaNav from "@/components/NieblaNav";
 import NieblaFooter from "@/components/NieblaFooter";
 import Reveal from "@/components/Reveal";
+import InstagramEmbed from "@/components/InstagramEmbed";
 
 export default function PrensaClient() {
   const [filter, setFilter] = useState("Todos");
+  const reel = useMemo(() => press.find((p) => p.kind === "Video"), []);
+  const notas = useMemo(() => press.filter((p) => p.kind !== "Video"), []);
   const outlets = useMemo(
-    () => ["Todos", ...Array.from(new Set(press.map((p) => p.outlet)))],
-    []
+    () => ["Todos", ...Array.from(new Set(notas.map((p) => p.outlet)))],
+    [notas]
   );
-  const visible = filter === "Todos" ? press : press.filter((p) => p.outlet === filter);
+  const visible = filter === "Todos" ? notas : notas.filter((p) => p.outlet === filter);
 
   return (
     <>
@@ -72,6 +75,25 @@ export default function PrensaClient() {
           </p>
         </div>
       </section>
+
+      {reel && (
+        <section className="nb-section" style={{ background: "var(--hueso)" }}>
+          <div className="nb-wrap" style={{ textAlign: "center" }}>
+            <span className="nb-label">Míralo en video</span>
+            <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", margin: "0.4rem 0 2.2rem" }}>
+              El Senderito en Instagram
+            </h2>
+            <Reveal>
+              <InstagramEmbed url={reel.url} />
+            </Reveal>
+            <p style={{ marginTop: "1.6rem" }}>
+              <a href={reel.url} target="_blank" rel="noopener noreferrer" className="nb-doc-dl">
+                <ExternalLink size={16} /> Ver en Instagram
+              </a>
+            </p>
+          </div>
+        </section>
+      )}
 
       <NieblaFooter />
     </>
