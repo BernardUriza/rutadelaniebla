@@ -93,6 +93,143 @@ export const documents: Doc[] = [
   },
 ];
 
+export type PressItem = {
+  id: string;
+  outlet: string;
+  date: string;
+  year: number;
+  kind: "Nota" | "Oficial" | "Video";
+  title: string;
+  url: string;
+  summary: string;
+};
+
+// Cobertura en medios recopilada por Don Miguel Andrade (Ruta de la Niebla A.C.).
+// Resúmenes verificados contra el contenido publicado de cada nota.
+export const press: PressItem[] = [
+  {
+    id: "espejo-medio-ambiente-sano",
+    outlet: "Espejo del Poder",
+    date: "26 de enero de 2026",
+    year: 2026,
+    kind: "Nota",
+    title: "El Senderito y el derecho a un medio ambiente sano",
+    url: "https://espejodelpoder.com/2026/01/26/el-senderito-y-el-derecho-a-un-medio-ambiente-sano/",
+    summary:
+      "Con motivo del Día Internacional de la Educación Ambiental, el Senderito celebró con exposiciones artísticas y talleres. La nota reflexiona sobre el derecho a un medio ambiente sano y el manejo de residuos en Coatepec.",
+  },
+  {
+    id: "aldea-sufre-perdida",
+    outlet: "La Aldea de la Información",
+    date: "13 de octubre de 2025",
+    year: 2025,
+    kind: "Nota",
+    title: "Sufre pérdida el Senderito de Bosque de Niebla",
+    url: "https://laaldeadelainformacion.com.mx/2025/10/13/sufre-perdida-el-senderito-de-bosque-de-niebla/",
+    summary:
+      "Homenaje al ingeniero agrónomo Erasmo Arturo García Meza, cuyas técnicas de retención de agua y control de erosión —inspiradas en las «ciudades esponja»— dejaron huella en el Senderito.",
+  },
+  {
+    id: "politicos-rosalba",
+    outlet: "Los Políticos Veracruz",
+    date: "18 de agosto de 2025",
+    year: 2025,
+    kind: "Nota",
+    title: "Rosalba en el Senderito",
+    url: "https://lospoliticosveracruz.com.mx/?p=150847",
+    summary:
+      "Visita de la magistrada Rosalba Hernández Hernández, presidenta del Poder Judicial de Veracruz, al Senderito. La nota destaca cómo la iniciativa ciudadana ha vuelto el Cerro de las Culebras un espacio de paz y reflexión.",
+  },
+  {
+    id: "regional-humanismo",
+    outlet: "El Regional Coatepec",
+    date: "8 de julio de 2024",
+    year: 2024,
+    kind: "Nota",
+    title: "Humanismo en el Senderito de Bosque de Niebla",
+    url: "https://elregionalcoatepec.com/humanismo-en-el-senderito-de-bosque-de-niebla/",
+    summary:
+      "Ruta de la Niebla recuperó un espacio público antes tomado por el consumo de drogas. La fundación Salvemos Coatepec realizó una jornada de reforestación sembrando 60 encinos con el método Miyawaki.",
+  },
+  {
+    id: "regional-yuawi",
+    outlet: "El Regional Coatepec",
+    date: "4 de mayo de 2024",
+    year: 2024,
+    kind: "Nota",
+    title: "Yuawi visitó el Senderito",
+    url: "https://elregionalcoatepec.com/yuawi-visito-el-senderito/",
+    summary:
+      "La visita del niño cantante Yuawi impulsa al Senderito como atractivo turístico. Iniciativa comunitaria de Ruta de la Niebla por la observación de naturaleza, la educación ambiental y la conservación del Cerro de las Culebras.",
+  },
+  {
+    id: "hoyxalapa-polinizadores",
+    outlet: "HoyXalapa",
+    date: "2 de octubre de 2023",
+    year: 2023,
+    kind: "Nota",
+    title: "Senderito de Bosque de Niebla y Universidad Veracruzana en defensa de los polinizadores",
+    url: "https://hoyxalapa.com/2023/10/02/senderito-de-bosque-de-niebla-y-universidad-veracruzana-en-defensa-de-los-polinizadores/",
+    summary:
+      "La Universidad Veracruzana instala jardines polinizadores en el Senderito para proteger abejas y mariposas, en línea con iniciativas a favor de la apicultura y la conservación de la biodiversidad.",
+  },
+  {
+    id: "versiones-turismo",
+    outlet: "Versiones",
+    date: "31 de mayo de 2023",
+    year: 2023,
+    kind: "Nota",
+    title: "Senderito de Bosque de Niebla atrae al turismo en Coatepec",
+    url: "https://versiones.com.mx/2023/05/31/senderito-de-bosque-de-niebla-atrae-al-turismo-en-coatepec/",
+    summary:
+      "El parque temático se consolida como atractivo turístico del Pueblo Mágico de Coatepec, sumando visitantes al corredor del bosque de niebla del Cerro de las Culebras.",
+  },
+  {
+    id: "diario-xalapa-parque-tematico",
+    outlet: "Diario de Xalapa (OEM)",
+    date: "2023",
+    year: 2023,
+    kind: "Nota",
+    title: "Senderito y Parque Temático del Bosque de Niebla en el Pueblo Mágico de Coatepec",
+    url: "https://oem.com.mx/diariodexalapa/ciencia-y-salud/senderito-y-parque-tematico-del-bosque-de-niebla-en-el-pueblo-magico-de-coatepec-13407741",
+    summary:
+      "Reportaje sobre el corredor cultural dedicado al bosque mesófilo de montaña dentro de la reserva del Cerro de las Culebras, con talleres ambientales, parcelas demostrativas y mirador.",
+  },
+  {
+    id: "entorno-festival-ecocultural",
+    outlet: "Entorno Político",
+    date: "2024",
+    year: 2024,
+    kind: "Nota",
+    title: "Todo un éxito el Festival Eco-cultural del Senderito del Bosque de Niebla",
+    url: "https://www.entornopolitico.com/nota/211471/local/todo-un-exito-el-festival-eco-cultural-del-senderito-del-bosque-de-niebla/",
+    summary:
+      "Crónica del festival ecocultural en el parque temático: observación de aves, talleres, teatro, danza, cuentacuentos, rifas y foros culturales en torno al bosque de niebla.",
+  },
+  {
+    id: "veracruz-inauguracion-sedema",
+    outlet: "Gobierno de Veracruz · SEDEMA",
+    date: "26 de enero de 2023",
+    year: 2023,
+    kind: "Oficial",
+    title: "Inaugura SEDEMA el Parque Temático Senderito del Bosque de Niebla, en Coatepec",
+    url: "https://www.veracruz.gob.mx/2023/01/26/inaugura-sedema-parque-tematico-senderito-del-bosque-de-niebla-en-coatepec/",
+    summary:
+      "Con una inversión de 461,397 pesos, la SEDEMA inauguró el parque lineal con sendero interpretativo, torre de observación de aves, baños secos y aula ambiental. Fue una de las 25 iniciativas del programa Fomento Ambiental 2022, elegida entre 223 propuestas.",
+  },
+  {
+    id: "instagram-reel",
+    outlet: "Instagram",
+    date: "Reel de difusión",
+    year: 2025,
+    kind: "Video",
+    title: "El Senderito en Instagram",
+    url: "https://www.instagram.com/reel/DKAdiKqyR8m/",
+    summary:
+      "Reel de difusión sobre el Senderito del Bosque de Niebla, compartido por la comunidad para dar a conocer el corredor y sus actividades.",
+  },
+];
+
 export const galleryCategories = [
   { id: "bosque", label: "Bosque", cls: "tile-bosque" },
   { id: "fauna", label: "Fauna", cls: "tile-fauna" },

@@ -5,7 +5,7 @@ const SITE = "https://senderitodebosquedeniebla.org";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/cerro-de-las-culebras", "/creadores", "/biblioteca", "/galeria", "/participa"];
+  const routes = ["", "/cerro-de-las-culebras", "/creadores", "/biblioteca", "/prensa", "/galeria", "/participa"];
   return routes.map((r) => ({
     url: `${SITE}${r}`,
     changeFrequency: "monthly",

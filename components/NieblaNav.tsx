@@ -8,6 +8,7 @@ const LINKS = [
   { href: "/cerro-de-las-culebras", label: "El Cerro" },
   { href: "/creadores", label: "Creadores" },
   { href: "/biblioteca", label: "Biblioteca" },
+  { href: "/prensa", label: "Prensa" },
   { href: "/galeria", label: "Galería" },
   { href: "/participa", label: "Participa" },
 ];
