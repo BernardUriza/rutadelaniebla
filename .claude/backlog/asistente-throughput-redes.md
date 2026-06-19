@@ -20,6 +20,13 @@ jamás reemplazando la fotografía real de Leticia.
   (`lib/data.ts`: `events`, `press`, `galleryItems`…); el ingestor escribe la
   entrada, Claude elige el TIPO, no toca JSX. La ficha de reforestación montada a
   mano el 19 jun es la PRIMERA entrada de ese contrato.
+- **Salida = también blogs multimedia, no solo posts/entradas.** Cada video/evento/
+  foto puede volverse un **blog** (texto + video embebido + transcript + keyframes +
+  fotos). El ingestor lo **redacta anclado en material real** usando
+  [[youtube-video-transcription]] (transcript yt-dlp/Whisper + keyframes sincronizados)
+  → preview → aprobar. Esto fusiona este ingestor con [[cms-blogs-miguel]]: el
+  ingestor es el motor que llena esa sección de blogs. Los 2 reportajes de RTV
+  ingeridos hoy son los primeros candidatos a blog.
 
 ## El plan de rollout (de Bernard, 19 jun) — dogfood primero, handoff al final
 1. **El mount manual ES nuestro false-door, no de Leticia.** Montar a mano cada

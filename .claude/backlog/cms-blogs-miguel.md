@@ -14,6 +14,25 @@ quiera** en el sitio, sin depender de Bernard para cada nota. Miguel ya redacta
 bien (ej. su artículo «Sufre pérdida el Senderito de Bosque de Niebla»,
 13 oct 2025) — el objetivo es darle las llaves de su propia voz editorial.
 
+## Evolución (19 jun 2026) — blogs MULTIMEDIA que el ingestor puede redactar
+
+La visión se afila: un blog no es solo texto de Miguel. **Cada video, cada
+evento, cada foto con su explicación merece su propio blog**, con temas diversos
+y multimedia (video embebido + sus **citas/transcript**, **keyframes**, fotos,
+contexto). Y el [[asistente-throughput-redes|ingestor]] puede **redactar el
+borrador** de esos blogs desde el material crudo:
+
+- Un video (p.ej. los reportajes de RTV ya ingeridos hoy) → transcript +
+  keyframes vía la técnica [[youtube-video-transcription]] → borrador de blog del
+  evento, con las frases clave y los stills sincronizados.
+- Una foto / un flyer / una nota de voz → entrada con su explicación.
+
+Esto **dogfoodea la sección de blogs**: lo que hoy hicimos a mano (evento, prensa,
+galería) es el primer lote; el siguiente nivel es que cada pieza tenga su blog.
+Reconcilia con «sin alucinar» (abajo): el ingestor **redacta anclado en material
+REAL** (transcript de SU video, SUS fotos) y **siempre pasa por preview→aprobar**
+de Miguel/Leticia — es su pluma asistida, no autoría inventada.
+
 ## El patrón canónico — «lo mismo que VHouse» (Art. 6)
 
 En VHouse el dueño edita su página desde `/mi-pagina`:
