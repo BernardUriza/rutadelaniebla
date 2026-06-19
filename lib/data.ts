@@ -338,6 +338,80 @@ export const galleryItems: GalleryItem[] = [
   { id: "conservacion-2", category: "conservacion", cls: "tile-conservacion", src: `${B}/conservacion-2.jpg`, caption: "La entrada, transformada por los murales" },
 ];
 
+// ---------- Blog del Senderito ----------
+// Entradas multimedia (texto + video + cita + foto). El cuerpo es una lista de
+// bloques estructurados: el MISMO contrato que el ingestor llenará después
+// (video → transcript + keyframes → bloques). Primer post aterrizado en el
+// transcript real del reportaje de RTV (yt-dlp auto-subs), sin inventar.
+export type BlogBlock =
+  | { type: "p"; text: string }
+  | { type: "quote"; text: string; cite?: string }
+  | { type: "video"; url: string; title: string }
+  | { type: "image"; src: string; caption?: string };
+
+export type BlogPost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  isoDate: string;
+  tag: string;
+  cover: string;
+  body: BlogBlock[];
+};
+
+export const posts: BlogPost[] = [
+  {
+    slug: "no-me-dejes-plantado-adopta-un-arbol",
+    title: "«No me dejes plantado»: adopta un árbol del Senderito",
+    excerpt:
+      "Cada vez más familias de Coatepec apadrinan un árbol del Cerro de las Culebras: le ponen nombre, lo riegan y lo ven crecer. Así funciona el proyecto de adopción del Senderito.",
+    author: "Ruta de la Niebla A.C.",
+    date: "19 de junio de 2026",
+    isoDate: "2026-06-19",
+    tag: "Reforestación",
+    cover: "/galeria/comunidad-2.jpg",
+    body: [
+      {
+        type: "p",
+        text: "Cada vez son más los habitantes de Coatepec que adoptan alguno de los árboles recientemente sembrados dentro del Parque Temático Senderito del Bosque de Niebla, en el Cerro de las Culebras.",
+      },
+      {
+        type: "p",
+        text: "Fresnos, encinos y otras especies nativas de este cerro volcánico son cuidados ahora por quienes frecuentan el lugar. El nombre de cada padrino queda junto al de la especie que adoptó: ellos serán los encargados de regarlo, abonarlo y limpiarlo de plagas.",
+      },
+      {
+        type: "quote",
+        text: "Me pareció súper interesante lo de adoptar un arbolito: venir a hablar con él, cuidarlo, ver que esté bien, notar su crecimiento. Así fue como decidí ser parte de esto.",
+        cite: "Una madrina del Senderito",
+      },
+      {
+        type: "p",
+        text: "El cuidado es sencillo y constante: vienes, adoptas tu árbol, y cuando es época de seca traes agüita y le echas; si notas que trae hormigas, hay que investigar un poco qué hacer. A través del proyecto «No me dejes plantado» también se imparten talleres sobre el cuidado de los árboles y se hace composta.",
+      },
+      {
+        type: "video",
+        url: "https://www.youtube.com/watch?v=c0iz8ZEa_4A",
+        title: "«No me dejes plantado», proyecto para adoptar un árbol · RTV Noticias",
+      },
+      {
+        type: "p",
+        text: "Hoy más de 60 familias han adoptado un arbolito y se han reforestado más de 20 especies nativas en el Cerro de las Culebras. Es restauración ecológica hecha por los propios vecinos, dentro de un Área Natural Protegida.",
+      },
+      {
+        type: "image",
+        src: "/eventos/reforestacion-2026-paisaje.jpg",
+        caption: "El valle desde el Mirador del Cerro de las Culebras.",
+      },
+      {
+        type: "p",
+        text: "La próxima jornada es este domingo 21 de junio. Si quieres apadrinar el tuyo, la cita es a las 8:30 en la Terraza Panorámica para una charla informativa, y de 9:00 a 11:00 se reforesta. Cooperación voluntaria.",
+      },
+    ],
+  },
+];
+
 // Contacto real del colectivo (de su Facebook).
 export const contacto = {
   org: "Ruta de la Niebla A.C.",
