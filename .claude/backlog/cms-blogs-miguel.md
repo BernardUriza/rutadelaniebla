@@ -1,7 +1,16 @@
 # Visión — CMS de blogs para Don Miguel (auto-publicación)
 
-Status: Proposed
+Status: In progress — tracer-bullet (blog estático) shipped 2026-06-19; falta la auto-publicación (backend)
 Proposed: 2026-06-16 by Bernard
+
+## Tracer-bullet shipped (19 jun 2026)
+La **sección de blog estática ya está en vivo**: `/blog` + `/blog/[slug]` (Next
+`output:export`, `generateStaticParams`), renderizada desde `lib/data.ts` →
+`posts: BlogPost[]` con cuerpo de **bloques estructurados** (párrafo/cita/video/
+foto) — el contrato que el ingestor llenará. Primer post «No me dejes plantado»
+aterrizado en el transcript real del reportaje de RTV (yt-dlp) + video embebido.
+Falta lo de abajo: que **Miguel/Leticia publiquen ellos** (auth + persistencia, o
+que el ingestor escriba el `posts[]` por ellos con preview→aprobar).
 
 Backlog item (no es una rule) — gobernado por `backlog-handling`. Pareja de
 [[asistente-virtual-senderito]]: ambas comparten backend.

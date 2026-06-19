@@ -7,7 +7,7 @@ son cosas por construir. Gobernado por la regla `backlog-handling`. Un archivo p
 | Ítem | Estado | Propuesto |
 |------|--------|-----------|
 | [Asistente virtual de recorridos del Senderito](asistente-virtual-senderito.md) | Proposed | 2026-06-16 |
-| [CMS de blogs para Don Miguel](cms-blogs-miguel.md) | Proposed | 2026-06-16 |
+| [CMS de blogs para Don Miguel](cms-blogs-miguel.md) | In progress (blog estático live 19 jun; falta auto-publicación) | 2026-06-16 |
 | [Asistente de throughput para redes (Leticia/Miguel)](asistente-throughput-redes.md) | Proposed | 2026-06-19 |
 
 Los tres comparten backend (fi-runner / Claude Max): si se monta la pieza para uno,
