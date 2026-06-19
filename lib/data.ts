@@ -122,6 +122,17 @@ export const press: PressItem[] = [
       "Entrevista con Leticia Arriaga Stransky, promotora de rutas viajeras en Veracruz: el turismo postcovid debe emerger de una conciencia ecológica, encaminado al agroturismo y las rutas agroecológicas en apoyo a los pequeños productores. El bosque de niebla como potencial de educación ambiental y turismo local. El texto donde nace la visión de la Ruta de la Niebla.",
   },
   {
+    id: "eureka-espacio-naturaleza",
+    outlet: "Eureka Medios",
+    date: "18 de mayo de 2026",
+    year: 2026,
+    kind: "Nota",
+    title: "Senderito del Bosque de Niebla, espacio abierto para el contacto con la naturaleza",
+    url: "https://eurekamedios.mx/senderito-del-bosque-de-niebla-espacio-abierto-para-el-contacto-con-la-naturaleza/",
+    summary:
+      "Proyecto ecológico independiente en el Cerro de las Culebras dedicado a la conservación y la educación ambiental. En primavera permite observar cerca de 60 especies de aves migratorias; todo el año ofrece visitas guiadas, talleres de herbolaria y actividades culturales.",
+  },
+  {
     id: "espejo-medio-ambiente-sano",
     outlet: "Espejo del Poder",
     date: "26 de enero de 2026",
@@ -232,6 +243,28 @@ export const press: PressItem[] = [
       "Con una inversión de 461,397 pesos, la SEDEMA inauguró el parque lineal con sendero interpretativo, torre de observación de aves, baños secos y aula ambiental. Fue una de las 25 iniciativas del programa Fomento Ambiental 2022, elegida entre 223 propuestas.",
   },
   {
+    id: "rtv-no-me-dejes-plantado",
+    outlet: "RTV Noticias",
+    date: "21 de enero de 2024",
+    year: 2024,
+    kind: "Video",
+    title: "«No me dejes plantado», proyecto para adoptar un árbol",
+    url: "https://www.youtube.com/watch?v=c0iz8ZEa_4A",
+    summary:
+      "Reportaje de RTV sobre «No me dejes plantado»: el programa de adopción de árboles del Senderito, donde las familias de Coatepec apadrinan un árbol nativo, le ponen nombre y lo ven crecer en el Cerro de las Culebras.",
+  },
+  {
+    id: "rtv-segundo-festival-ecocultural",
+    outlet: "RTV Noticias",
+    date: "9 de julio de 2023",
+    year: 2023,
+    kind: "Video",
+    title: "En Coatepec inicia el Segundo Festival Eco Cultural del Bosque de Niebla",
+    url: "https://www.youtube.com/watch?v=CmAjWdyJG6c",
+    summary:
+      "Cobertura de RTV de la inauguración del Segundo Festival Eco Cultural del Bosque de Niebla en el parque temático: actividades culturales, ambientales y comunitarias en torno al bosque mesófilo.",
+  },
+  {
     id: "instagram-reel",
     outlet: "Instagram",
     date: "Reel de difusión",
@@ -292,6 +325,7 @@ const B = "/galeria";
 export const galleryItems: GalleryItem[] = [
   { id: "bosque-1", category: "bosque", cls: "tile-bosque", src: `${B}/bosque-1.jpg`, caption: "El cerro entre la niebla" },
   { id: "bosque-2", category: "bosque", cls: "tile-bosque", src: `${B}/bosque-2.jpg`, caption: "Follaje otoñal del bosque mesófilo" },
+  { id: "bosque-3", category: "bosque", cls: "tile-bosque", src: `${B}/mirador-valle.jpg`, caption: "El valle desde el Mirador del Cerro de las Culebras" },
   { id: "fauna-1", category: "fauna", cls: "tile-fauna", src: `${B}/fauna-1.jpg`, caption: "Colibrí fandanguero mexicano" },
   { id: "fauna-2", category: "fauna", cls: "tile-fauna", src: `${B}/fauna-2.jpg`, caption: "Cuclillo canelo" },
   { id: "fauna-3", category: "fauna", cls: "tile-fauna", src: `${B}/fauna-3.jpg`, caption: "Carpintero chéjere" },

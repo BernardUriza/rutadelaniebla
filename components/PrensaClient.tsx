@@ -10,8 +10,8 @@ import InstagramEmbed from "@/components/InstagramEmbed";
 
 export default function PrensaClient() {
   const [filter, setFilter] = useState("Todos");
-  const reel = useMemo(() => press.find((p) => p.kind === "Video"), []);
-  const notas = useMemo(() => press.filter((p) => p.kind !== "Video"), []);
+  const reel = useMemo(() => press.find((p) => p.kind === "Video" && p.outlet === "Instagram"), []);
+  const notas = useMemo(() => press.filter((p) => p !== reel), [reel]);
   const outlets = useMemo(
     () => ["Todos", ...Array.from(new Set(notas.map((p) => p.outlet)))],
     [notas]
@@ -62,7 +62,7 @@ export default function PrensaClient() {
                   <p className="nb-doc-meta">{p.outlet}</p>
                   <p className="nb-doc-abstract">{p.summary}</p>
                   <a href={p.url} target="_blank" rel="noopener noreferrer" className="nb-doc-dl">
-                    <ExternalLink size={16} /> Leer en {p.outlet}
+                    <ExternalLink size={16} /> {p.kind === "Video" ? "Ver" : "Leer"} en {p.outlet}
                   </a>
                 </article>
               </Reveal>
