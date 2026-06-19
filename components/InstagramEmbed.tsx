@@ -14,7 +14,6 @@ export default function InstagramEmbed({ url, height = 700 }: Props) {
         height={height}
         loading="lazy"
         scrolling="no"
-        allowTransparency
         allow="encrypted-media; clipboard-write"
         allowFullScreen
       />
