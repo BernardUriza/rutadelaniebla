@@ -291,23 +291,29 @@
 .nb-doc .nb-doc-dl:hover { text-decoration: underline; }
 .nb-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tierra); border: 1px solid var(--niebla); border-radius: 999px; padding: 0.15rem 0.6rem; }
 .nb-tag.is-hito { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--acento); border-color: var(--acento); }
+.nb-tag.is-pending { color: var(--musgo); border-style: dashed; }
 .nb-clamp { display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Documento aún no compartido: visible pero claramente "por venir", sin interacción */
+.nb-doc.is-pending { opacity: 0.6; border-style: dashed; }
+.nb-doc.is-pending:hover { transform: none; box-shadow: none; }
+.nb-doc-pending { margin-top: auto; padding-top: 1.4rem; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 500; color: var(--musgo); }
 
 /* ---------- Prensa: hemeroteca como línea de tiempo editorial ---------- */
 .nb-press-scale { padding: 3.5rem 0; border-bottom: 1px solid var(--niebla); }
 .nb-press-scale .nb-stat-value { color: var(--bosque); }
 .nb-press-scale .nb-stat-label { color: var(--musgo); }
 
-.nb-press-lead {
+.nb-feature {
   display: block; background: var(--hueso);
   border: 1px solid var(--niebla); border-left: 3px solid var(--acento); border-radius: 10px;
   padding: 2.5rem 2.2rem; margin-bottom: 3.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.nb-press-lead:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(27,46,35,0.12); }
-.nb-press-lead h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); margin: 0.5rem 0 0; }
-.nb-press-lead-meta { font-size: 0.82rem; color: var(--musgo); margin-top: 0.5rem; }
-.nb-press-lead-text { font-size: 1.02rem; color: var(--corteza); opacity: 0.9; margin: 1.1rem 0 1.4rem; max-width: 62ch; }
+.nb-feature:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(27,46,35,0.12); }
+.nb-feature h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); margin: 0.5rem 0 0; }
+.nb-feature-meta { font-size: 0.82rem; color: var(--musgo); margin-top: 0.5rem; }
+.nb-feature-text { font-size: 1.02rem; color: var(--corteza); opacity: 0.9; margin: 1.1rem 0 1.4rem; max-width: 62ch; }
 
 .nb-press-filters { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 3rem; }
 

@@ -128,16 +128,16 @@ export default function PrensaClient() {
                 href={founding.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="nb-press-lead"
+                className="nb-feature"
               >
                 <span className="nb-label" style={{ color: "var(--acento)" }}>
                   Donde empezó todo · {founding.year}
                 </span>
                 <h2>{founding.title}</h2>
-                <p className="nb-press-lead-meta">
+                <p className="nb-feature-meta">
                   {founding.outlet} · {founding.date}
                 </p>
-                <p className="nb-press-lead-text">{founding.summary}</p>
+                <p className="nb-feature-text">{founding.summary}</p>
                 <span className="nb-doc-dl">
                   <ExternalLink size={16} /> Leer en {founding.outlet}
                 </span>
