@@ -1,23 +1,90 @@
 "use client";
 import { useMemo, useState } from "react";
 import type { CSSProperties } from "react";
-import { ExternalLink } from "lucide-react";
-import { press } from "@/lib/data";
+import { ExternalLink, Award } from "lucide-react";
+import { press, pressDateKey } from "@/lib/data";
+import type { PressItem } from "@/lib/data";
 import NieblaNav from "@/components/NieblaNav";
 import NieblaFooter from "@/components/NieblaFooter";
 import Reveal from "@/components/Reveal";
+import CounterStat from "@/components/CounterStat";
 import InstagramEmbed from "@/components/InstagramEmbed";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 
-export default function PrensaClient() {
-  const [filter, setFilter] = useState("Todos");
-  const videos = useMemo(() => press.filter((p) => p.kind === "Video").sort((a, b) => b.year - a.year), []);
-  const notas = useMemo(() => press.filter((p) => p.kind !== "Video"), []);
-  const outlets = useMemo(
-    () => ["Todos", ...Array.from(new Set(notas.map((p) => p.outlet)))],
-    [notas]
+type TypeFilter = "Todo" | "Escrito" | "Video";
+const FILTERS: { key: TypeFilter; label: string }[] = [
+  { key: "Todo", label: "Todo" },
+  { key: "Escrito", label: "Lo escrito" },
+  { key: "Video", label: "En video" },
+];
+
+function matchesType(p: PressItem, f: TypeFilter) {
+  if (f === "Todo") return true;
+  if (f === "Video") return p.kind === "Video";
+  return p.kind !== "Video";
+}
+
+function PressRow({ item }: { item: PressItem }) {
+  const isHito = item.kind === "Oficial";
+  const isVideo = item.kind === "Video";
+  return (
+    <article className={`nb-press-item${isHito ? " is-hito" : ""}${isVideo ? " is-video" : ""}`}>
+      {isVideo && (
+        <div className="nb-press-media">
+          {item.outlet === "Instagram" ? (
+            <InstagramEmbed url={item.url} height={520} />
+          ) : (
+            <YouTubeEmbed url={item.url} title={item.title} />
+          )}
+        </div>
+      )}
+      <div className="nb-press-body">
+        <span className={`nb-tag${isHito ? " is-hito" : ""}`}>
+          {isHito ? (
+            <>
+              <Award size={12} /> Hito oficial
+            </>
+          ) : (
+            item.kind
+          )}{" "}
+          · {item.outlet}
+        </span>
+        <h3>{item.title}</h3>
+        <p className="nb-press-date">{item.date}</p>
+        <p className="nb-doc-abstract nb-clamp">{item.summary}</p>
+        <a href={item.url} target="_blank" rel="noopener noreferrer" className="nb-doc-dl">
+          <ExternalLink size={16} /> {isVideo ? "Ver" : "Leer"} en {item.outlet}
+        </a>
+      </div>
+    </article>
   );
-  const visible = filter === "Todos" ? notas : notas.filter((p) => p.outlet === filter);
+}
+
+export default function PrensaClient() {
+  const [filter, setFilter] = useState<TypeFilter>("Todo");
+
+  const founding = useMemo(() => press.find((p) => p.featured), []);
+
+  const scale = useMemo(() => {
+    const notas = press.filter((p) => p.kind !== "Video").length;
+    const videos = press.filter((p) => p.kind === "Video").length;
+    const medios = new Set(press.map((p) => p.outlet)).size;
+    const desde = Math.min(...press.map((p) => p.year).filter(Boolean));
+    return { notas, videos, medios, desde };
+  }, []);
+
+  const years = useMemo(() => {
+    const rest = press
+      .filter((p) => !p.featured && matchesType(p, filter))
+      .sort((a, b) => pressDateKey(b) - pressDateKey(a));
+    const byYear = new Map<number, PressItem[]>();
+    for (const p of rest) {
+      byYear.set(p.year, [...(byYear.get(p.year) ?? []), p]);
+    }
+    return [...byYear.entries()].sort((a, b) => b[0] - a[0]);
+  }, [filter]);
+
+  const showFounding = !!founding && matchesType(founding, filter);
 
   return (
     <>
@@ -33,42 +100,88 @@ export default function PrensaClient() {
           <h1>El Senderito en la prensa</h1>
           <p>
             Lo que han escrito sobre el Senderito del Bosque de Niebla: desde su
-            inauguración hasta sus festivales, jornadas y visitas. Cobertura recopilada
-            por la comunidad.
+            inauguración hasta sus festivales, jornadas y visitas. Una hemeroteca
+            recopilada por la comunidad, en orden, año con año.
           </p>
         </div>
       </header>
 
+      <section className="nb-press-scale">
+        <div className="nb-wrap">
+          <div className="nb-stats-grid">
+            <CounterStat value={scale.notas} label="Notas y reportajes" />
+            <CounterStat value={scale.videos} label="Coberturas en video" />
+            <CounterStat value={scale.medios} label="Medios distintos" />
+            <div>
+              <div className="nb-stat-value">{scale.desde}</div>
+              <div className="nb-stat-label">Cubriendo desde</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="nb-section">
         <div className="nb-wrap">
-          <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap", marginBottom: "2.5rem" }}>
-            {outlets.map((o) => (
+          {showFounding && founding && (
+            <Reveal>
+              <a
+                href={founding.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nb-press-lead"
+              >
+                <span className="nb-label" style={{ color: "var(--acento)" }}>
+                  Donde empezó todo · {founding.year}
+                </span>
+                <h2>{founding.title}</h2>
+                <p className="nb-press-lead-meta">
+                  {founding.outlet} · {founding.date}
+                </p>
+                <p className="nb-press-lead-text">{founding.summary}</p>
+                <span className="nb-doc-dl">
+                  <ExternalLink size={16} /> Leer en {founding.outlet}
+                </span>
+              </a>
+            </Reveal>
+          )}
+
+          <div className="nb-press-filters">
+            {FILTERS.map((f) => (
               <button
-                key={o}
-                onClick={() => setFilter(o)}
-                className={`nb-btn ${filter === o ? "nb-btn-primary" : "nb-btn-ghost"}`}
+                key={f.key}
+                onClick={() => setFilter(f.key)}
+                aria-pressed={filter === f.key}
+                className={`nb-btn ${filter === f.key ? "nb-btn-primary" : "nb-btn-ghost"}`}
                 style={{ padding: "0.5rem 1.2rem", fontSize: "0.85rem" }}
               >
-                {o}
+                {f.label}
               </button>
             ))}
           </div>
 
-          <div className="nb-doc-grid">
-            {visible.map((p, i) => (
-              <Reveal key={p.id} delay={(i % 3) * 0.08}>
-                <article className="nb-doc">
-                  <span className="nb-tag">{p.kind} · {p.date}</span>
-                  <h3>{p.title}</h3>
-                  <p className="nb-doc-meta">{p.outlet}</p>
-                  <p className="nb-doc-abstract">{p.summary}</p>
-                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="nb-doc-dl">
-                    <ExternalLink size={16} /> {p.kind === "Video" ? "Ver" : "Leer"} en {p.outlet}
-                  </a>
-                </article>
-              </Reveal>
+          <div className="nb-timeline">
+            {years.map(([year, items]) => (
+              <div key={year} className="nb-year-group">
+                <div className="nb-year">
+                  <span className="nb-year-num">{year}</span>
+                  <span className="nb-year-rule" />
+                </div>
+                <div className="nb-press-list">
+                  {items.map((p, i) => (
+                    <Reveal key={p.id} delay={(i % 2) * 0.08}>
+                      <PressRow item={p} />
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
+
+          {years.length === 0 && !showFounding && (
+            <p className="nb-placeholder-note">
+              Aún no hay coberturas de este tipo en la hemeroteca.
+            </p>
+          )}
 
           <p className="nb-placeholder-note">
             📰 ¿Tienes una nota o reportaje sobre el Senderito que falte aquí? Compártela
@@ -76,34 +189,6 @@ export default function PrensaClient() {
           </p>
         </div>
       </section>
-
-      {videos.length > 0 && (
-        <section className="nb-section" style={{ background: "var(--hueso)" }}>
-          <div className="nb-wrap" style={{ textAlign: "center" }}>
-            <span className="nb-label">Míralo en video</span>
-            <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", margin: "0.4rem 0 3rem" }}>
-              El Senderito en video
-            </h2>
-            <div style={{ display: "grid", gap: "3.5rem", maxWidth: "680px", margin: "0 auto" }}>
-              {videos.map((v) => (
-                <Reveal key={v.id}>
-                  <h3 style={{ fontSize: "1.2rem", marginBottom: "1.2rem" }}>{v.title}</h3>
-                  {v.outlet === "Instagram" ? (
-                    <InstagramEmbed url={v.url} />
-                  ) : (
-                    <YouTubeEmbed url={v.url} title={v.title} />
-                  )}
-                  <p style={{ marginTop: "1.2rem" }}>
-                    <a href={v.url} target="_blank" rel="noopener noreferrer" className="nb-doc-dl">
-                      <ExternalLink size={16} /> Ver en {v.outlet}
-                    </a>
-                  </p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       <NieblaFooter />
     </>

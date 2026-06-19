@@ -290,6 +290,52 @@
 .nb-doc .nb-doc-dl { margin-top: auto; padding-top: 1.4rem; color: var(--acento); font-weight: 500; display: inline-flex; align-items: center; gap: 0.4rem; }
 .nb-doc .nb-doc-dl:hover { text-decoration: underline; }
 .nb-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tierra); border: 1px solid var(--niebla); border-radius: 999px; padding: 0.15rem 0.6rem; }
+.nb-tag.is-hito { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--acento); border-color: var(--acento); }
+.nb-clamp { display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ---------- Prensa: hemeroteca como línea de tiempo editorial ---------- */
+.nb-press-scale { padding: 3.5rem 0; border-bottom: 1px solid var(--niebla); }
+.nb-press-scale .nb-stat-value { color: var(--bosque); }
+.nb-press-scale .nb-stat-label { color: var(--musgo); }
+
+.nb-press-lead {
+  display: block; background: var(--hueso);
+  border: 1px solid var(--niebla); border-left: 3px solid var(--acento); border-radius: 10px;
+  padding: 2.5rem 2.2rem; margin-bottom: 3.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.nb-press-lead:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(27,46,35,0.12); }
+.nb-press-lead h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); margin: 0.5rem 0 0; }
+.nb-press-lead-meta { font-size: 0.82rem; color: var(--musgo); margin-top: 0.5rem; }
+.nb-press-lead-text { font-size: 1.02rem; color: var(--corteza); opacity: 0.9; margin: 1.1rem 0 1.4rem; max-width: 62ch; }
+
+.nb-press-filters { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 3rem; }
+
+.nb-year-group { margin-bottom: 3.5rem; }
+.nb-year { display: flex; align-items: baseline; gap: 1.2rem; margin-bottom: 1.8rem; }
+.nb-year-num { font-family: var(--serif); font-weight: 500; line-height: 1; color: var(--bosque); font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.nb-year-rule { flex: 1; height: 1px; background: var(--niebla); }
+
+.nb-press-list { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+@media (min-width: 760px) { .nb-press-list { grid-template-columns: repeat(2, 1fr); } }
+
+.nb-press-item {
+  display: flex; flex-direction: column; height: 100%;
+  background: var(--hueso); border: 1px solid var(--niebla); border-radius: 8px;
+  padding: 1.6rem 1.7rem; transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.nb-press-item:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(27,46,35,0.1); }
+.nb-press-item.is-hito { border-color: var(--acento); border-left-width: 3px; background: linear-gradient(180deg, rgba(196,112,58,0.06), var(--hueso) 42%); }
+.nb-press-item h3 { font-size: 1.25rem; line-height: 1.2; margin: 0.6rem 0 0; }
+.nb-press-date { font-size: 0.78rem; color: var(--musgo); margin-top: 0.35rem; }
+.nb-press-media { margin-bottom: 1.2rem; }
+.nb-press-body { display: flex; flex-direction: column; flex: 1; }
+
+@media (min-width: 760px) {
+  .nb-press-item.is-video { grid-column: 1 / -1; flex-direction: row; gap: 1.8rem; align-items: flex-start; }
+  .nb-press-item.is-video .nb-press-media { margin-bottom: 0; flex: 0 0 auto; width: 360px; max-width: 45%; }
+  .nb-press-item.is-video .nb-press-body { flex: 1; }
+}
 
 /* ---------- Instagram embed (patrón Veggie Slice / VHouse) ---------- */
 .nb-ig-frame {
