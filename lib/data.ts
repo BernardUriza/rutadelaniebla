@@ -102,7 +102,20 @@ export type PressItem = {
   title: string;
   url: string;
   summary: string;
+  featured?: boolean;
 };
+
+const ES_MONTHS: Record<string, number> = {
+  enero: 1, febrero: 2, marzo: 3, abril: 4, mayo: 5, junio: 6,
+  julio: 7, agosto: 8, septiembre: 9, octubre: 10, noviembre: 11, diciembre: 12,
+};
+
+export function pressDateKey(p: PressItem): number {
+  const m = p.date.toLowerCase().match(/(\d{1,2}) de ([a-zé]+) de (\d{4})/);
+  if (!m) return p.year * 10000;
+  const [, day, month, year] = m;
+  return Number(year) * 10000 + (ES_MONTHS[month] ?? 0) * 100 + Number(day);
+}
 
 // Cobertura en medios recopilada por Don Miguel Andrade (Ruta de la Niebla A.C.).
 // Resúmenes verificados contra el contenido publicado de cada nota.
@@ -112,6 +125,7 @@ export const press: PressItem[] = [
   // petición editorial de Leticia — es el origen conceptual de todo lo demás.
   {
     id: "alcalorpolitico-turismo-sustentable",
+    featured: true,
     outlet: "Al Calor Político",
     date: "27 de septiembre de 2020",
     year: 2020,
@@ -407,6 +421,50 @@ export const posts: BlogPost[] = [
       {
         type: "p",
         text: "La próxima jornada es este domingo 21 de junio. Si quieres apadrinar el tuyo, la cita es a las 8:30 en la Terraza Panorámica para una charla informativa, y de 9:00 a 11:00 se reforesta. Cooperación voluntaria.",
+      },
+    ],
+  },
+  {
+    slug: "segundo-festival-eco-cultural-bosque-de-niebla",
+    title: "Una serpiente para despertar al Cerro: el Festival Eco Cultural del Bosque de Niebla",
+    excerpt:
+      "Una falsa coralillo recorrió Coatepec hasta el cerro donde estas serpientes casi se extinguieron. Así abrió el Segundo Festival Eco Cultural, entre la celebración y un llamado urgente a proteger el bosque.",
+    author: "Ruta de la Niebla A.C.",
+    date: "9 de julio de 2023",
+    isoDate: "2023-07-09",
+    tag: "Festival",
+    cover: "/galeria/conservacion-1.jpg",
+    body: [
+      {
+        type: "p",
+        text: "Una falsa coralillo serpenteó por las calles del centro de Coatepec, desde el Parque Hidalgo hasta el Cerro de las Culebras: ahí, donde estas serpientes abundaban y hoy casi están extintas, arrancó el Segundo Festival Eco Cultural del Bosque de Niebla.",
+      },
+      {
+        type: "p",
+        text: "Con él, la asociación Ruta de la Niebla buscó dar a conocer este espacio y sus beneficios ambientales, y promover su protección frente a los riesgos del crecimiento poblacional. El festival gira en torno a las especies —insectos, serpientes, aves, mamíferos— y la flora que habita el cerro.",
+      },
+      {
+        type: "quote",
+        text: "El Cerro de las Culebras es un pulmón para Coatepec. Es un llamado a la sociedad para que se sume, no solo a la celebración, sino a la reforestación que arrancamos la próxima semana.",
+        cite: "Ruta de la Niebla A.C.",
+      },
+      {
+        type: "video",
+        url: "https://www.youtube.com/watch?v=CmAjWdyJG6c",
+        title: "En Coatepec inicia el Segundo Festival Eco Cultural del Bosque de Niebla · RTV Noticias",
+      },
+      {
+        type: "p",
+        text: "Pero el cerro está bajo presión. Aunque es Área Natural Protegida, en los últimos años nuevas construcciones han invadido parte del polígono. Un análisis de imágenes satelitales estima cerca de cuatro hectáreas ya perdidas por el avance de la urbanización; lo ideal, advierten, sería georreferenciar in situ y garantizar que no se siga invadiendo. De lo contrario, cada diez años el bosque se reduce, hasta que solo quede la parte del Mirador.",
+      },
+      {
+        type: "image",
+        src: "/galeria/fauna-1.jpg",
+        caption: "Colibrí fandanguero mexicano, una de las 104 especies de aves del corredor del bosque de niebla.",
+      },
+      {
+        type: "p",
+        text: "En el Senderito se realizan también recorridos de observación de aves, con los que se concientiza sobre la importancia de conservar este bosque de niebla —uno de los ecosistemas más biodiversos y amenazados del país— para que siga siendo refugio de la vida que aún serpentea por el cerro.",
       },
     ],
   },
