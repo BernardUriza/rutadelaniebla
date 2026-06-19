@@ -107,6 +107,20 @@ export type PressItem = {
 // Cobertura en medios recopilada por Don Miguel Andrade (Ruta de la Niebla A.C.).
 // Resúmenes verificados contra el contenido publicado de cada nota.
 export const press: PressItem[] = [
+  // Artículo fundacional (2020): a Leticia Arriaga, promotora de Ruta de la Niebla,
+  // la entrevistan sobre turismo sustentable y rutas agroecológicas. Va al INICIO por
+  // petición editorial de Leticia — es el origen conceptual de todo lo demás.
+  {
+    id: "alcalorpolitico-turismo-sustentable",
+    outlet: "Al Calor Político",
+    date: "27 de septiembre de 2020",
+    year: 2020,
+    kind: "Nota",
+    title: "Turismo postcovid deberá ser sustentable y consciente del cuidado del medio ambiente",
+    url: "https://www.alcalorpolitico.com/informacion/turismo-postcovid-debera-ser-sustentable-y-consciente-del-cuidado-del-medio-ambiente-326710.html",
+    summary:
+      "Entrevista con Leticia Arriaga Stransky, promotora de rutas viajeras en Veracruz: el turismo postcovid debe emerger de una conciencia ecológica, encaminado al agroturismo y las rutas agroecológicas en apoyo a los pequeños productores. El bosque de niebla como potencial de educación ambiental y turismo local. El texto donde nace la visión de la Ruta de la Niebla.",
+  },
   {
     id: "espejo-medio-ambiente-sano",
     outlet: "Espejo del Poder",
@@ -227,6 +241,39 @@ export const press: PressItem[] = [
     url: "https://www.instagram.com/reel/DKAdiKqyR8m/",
     summary:
       "Reel de difusión sobre el Senderito del Bosque de Niebla, compartido por la comunidad para dar a conocer el corredor y sus actividades.",
+  },
+];
+
+export type EventItem = {
+  id: string;
+  title: string;
+  occasion?: string;
+  date: string;
+  isoDate: string;
+  place: string;
+  schedule: { time: string; activity: string }[];
+  note: string;
+  image: string;
+  flyer: string;
+};
+
+// Próximas actividades del Senderito. Contenido enviado por Leticia (Ruta de la Niebla).
+export const events: EventItem[] = [
+  {
+    id: "jornada-reforestacion-2026",
+    title: "Jornadas de Reforestación 2026",
+    occasion: "Día del Padre y Solsticio de Verano",
+    date: "Domingo 21 de junio de 2026",
+    isoDate: "2026-06-21",
+    place: "Terraza Panorámica · Parque Temático Senderito del Bosque de Niebla",
+    schedule: [
+      { time: "8:30", activity: "Charla informativa sobre el proyecto en la Terraza Panorámica" },
+      { time: "9:00 – 11:00", activity: "Reforestación" },
+      { time: "11:00 – 12:00", activity: "Juego de la Lotería del Bosque de Niebla" },
+    ],
+    note: "Cooperación voluntaria. Infórmanos de tu visita.",
+    image: "/eventos/reforestacion-2026-paisaje.jpg",
+    flyer: "/eventos/jornada-reforestacion-2026.jpg",
   },
 ];
 

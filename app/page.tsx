@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
-import { stats, documents, galleryItems } from "@/lib/data";
+import { stats, documents, galleryItems, events, contacto } from "@/lib/data";
 import NieblaNav from "@/components/NieblaNav";
 import NieblaFooter from "@/components/NieblaFooter";
 import Reveal from "@/components/Reveal";
@@ -12,6 +12,7 @@ const SectionLabel = ({ children }: { children: React.ReactNode }) => (
 
 export default function Home() {
   const featuredDocs = documents.slice(0, 3);
+  const nextEvent = events[0];
   const homeGallery = [
     galleryItems[0], galleryItems[2], galleryItems[4], galleryItems[6],
     galleryItems[8], galleryItems[10], galleryItems[1], galleryItems[5],
@@ -48,6 +49,73 @@ export default function Home() {
         </div>
         <div className="nb-scroll-cue">↓</div>
       </header>
+
+      {/* ── PRÓXIMA ACTIVIDAD ── */}
+      {nextEvent && (
+        <section className="nb-section" style={{ background: "rgba(90,110,79,0.08)" }}>
+          <div className="nb-wrap">
+            <Reveal>
+              <div style={{ textAlign: "center", marginBottom: "2.8rem" }}>
+                <SectionLabel>Próxima actividad</SectionLabel>
+                <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", marginTop: "0.6rem" }}>
+                  {nextEvent.title}
+                </h2>
+                {nextEvent.occasion && (
+                  <p style={{ color: "var(--bosque)", fontWeight: 600, marginTop: "0.5rem" }}>
+                    {nextEvent.occasion}
+                  </p>
+                )}
+              </div>
+            </Reveal>
+
+            <div className="nb-two-col">
+              <Reveal>
+                <a href={nextEvent.flyer} target="_blank" rel="noopener noreferrer" aria-label="Ver el cartel completo">
+                  <div
+                    className="nb-figure"
+                    style={{ backgroundImage: `url('${nextEvent.flyer}')`, aspectRatio: "10 / 16" }}
+                    data-caption="Cartel · Ruta de la Niebla A.C."
+                  />
+                </a>
+              </Reveal>
+
+              <Reveal delay={0.15}>
+                <p style={{ fontSize: "1.15rem", fontWeight: 700, color: "var(--bosque)" }}>
+                  📅 {nextEvent.date}
+                </p>
+                <p style={{ color: "var(--corteza)", marginTop: "0.4rem" }}>
+                  📍 {nextEvent.place}
+                </p>
+
+                <ul style={{ listStyle: "none", padding: 0, margin: "1.8rem 0", display: "grid", gap: "1rem" }}>
+                  {nextEvent.schedule.map((s) => (
+                    <li key={s.time} style={{ display: "flex", gap: "1.1rem", alignItems: "baseline" }}>
+                      <span style={{ fontWeight: 700, color: "var(--bosque)", minWidth: "6.5rem", whiteSpace: "nowrap" }}>
+                        {s.time}
+                      </span>
+                      <span style={{ color: "var(--corteza)" }}>{s.activity}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <p style={{ fontStyle: "italic", color: "var(--corteza)" }}>{nextEvent.note}</p>
+
+                <a
+                  href={`${contacto.whatsapp}&text=${encodeURIComponent(
+                    "Hola, quiero asistir a las Jornadas de Reforestación del domingo 21."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nb-btn nb-btn-acento"
+                  style={{ marginTop: "1.8rem" }}
+                >
+                  Quiero asistir
+                </a>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── SECCIÓN 2: ¿Por qué importa? ── */}
       <section className="nb-section">
