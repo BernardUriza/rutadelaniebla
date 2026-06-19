@@ -7,11 +7,12 @@ import NieblaNav from "@/components/NieblaNav";
 import NieblaFooter from "@/components/NieblaFooter";
 import Reveal from "@/components/Reveal";
 import InstagramEmbed from "@/components/InstagramEmbed";
+import YouTubeEmbed from "@/components/YouTubeEmbed";
 
 export default function PrensaClient() {
   const [filter, setFilter] = useState("Todos");
-  const reel = useMemo(() => press.find((p) => p.kind === "Video" && p.outlet === "Instagram"), []);
-  const notas = useMemo(() => press.filter((p) => p !== reel), [reel]);
+  const videos = useMemo(() => press.filter((p) => p.kind === "Video").sort((a, b) => b.year - a.year), []);
+  const notas = useMemo(() => press.filter((p) => p.kind !== "Video"), []);
   const outlets = useMemo(
     () => ["Todos", ...Array.from(new Set(notas.map((p) => p.outlet)))],
     [notas]
@@ -76,21 +77,30 @@ export default function PrensaClient() {
         </div>
       </section>
 
-      {reel && (
+      {videos.length > 0 && (
         <section className="nb-section" style={{ background: "var(--hueso)" }}>
           <div className="nb-wrap" style={{ textAlign: "center" }}>
             <span className="nb-label">Míralo en video</span>
-            <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", margin: "0.4rem 0 2.2rem" }}>
-              El Senderito en Instagram
+            <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", margin: "0.4rem 0 3rem" }}>
+              El Senderito en video
             </h2>
-            <Reveal>
-              <InstagramEmbed url={reel.url} />
-            </Reveal>
-            <p style={{ marginTop: "1.6rem" }}>
-              <a href={reel.url} target="_blank" rel="noopener noreferrer" className="nb-doc-dl">
-                <ExternalLink size={16} /> Ver en Instagram
-              </a>
-            </p>
+            <div style={{ display: "grid", gap: "3.5rem", maxWidth: "680px", margin: "0 auto" }}>
+              {videos.map((v) => (
+                <Reveal key={v.id}>
+                  <h3 style={{ fontSize: "1.2rem", marginBottom: "1.2rem" }}>{v.title}</h3>
+                  {v.outlet === "Instagram" ? (
+                    <InstagramEmbed url={v.url} />
+                  ) : (
+                    <YouTubeEmbed url={v.url} title={v.title} />
+                  )}
+                  <p style={{ marginTop: "1.2rem" }}>
+                    <a href={v.url} target="_blank" rel="noopener noreferrer" className="nb-doc-dl">
+                      <ExternalLink size={16} /> Ver en {v.outlet}
+                    </a>
+                  </p>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
       )}
