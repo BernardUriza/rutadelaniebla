@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
-import { stats, documents, galleryItems, events, contacto } from "@/lib/data";
+import { stats, documents, galleryItems, events, recurringVisits, contacto } from "@/lib/data";
 import NieblaNav from "@/components/NieblaNav";
 import NieblaFooter from "@/components/NieblaFooter";
 import Reveal from "@/components/Reveal";
@@ -12,7 +12,10 @@ const SectionLabel = ({ children }: { children: React.ReactNode }) => (
 
 export default function Home() {
   const featuredDocs = documents.slice(0, 3);
-  const nextEvent = events[0];
+  const today = new Date().toISOString().slice(0, 10);
+  const upcomingEvents = [...events].sort((a, b) => a.isoDate.localeCompare(b.isoDate));
+  const nextEvent =
+    upcomingEvents.find((e) => e.isoDate >= today) ?? upcomingEvents[upcomingEvents.length - 1];
   const homeGallery = [
     galleryItems[0], galleryItems[2], galleryItems[4], galleryItems[6],
     galleryItems[8], galleryItems[10], galleryItems[1], galleryItems[5],
@@ -87,22 +90,40 @@ export default function Home() {
                   📍 {nextEvent.place}
                 </p>
 
-                <ul style={{ listStyle: "none", padding: 0, margin: "1.8rem 0", display: "grid", gap: "1rem" }}>
-                  {nextEvent.schedule.map((s) => (
-                    <li key={s.time} style={{ display: "flex", gap: "1.1rem", alignItems: "baseline" }}>
-                      <span style={{ fontWeight: 700, color: "var(--bosque)", minWidth: "6.5rem", whiteSpace: "nowrap" }}>
-                        {s.time}
-                      </span>
-                      <span style={{ color: "var(--corteza)" }}>{s.activity}</span>
-                    </li>
-                  ))}
-                </ul>
+                {nextEvent.schedule && nextEvent.schedule.length > 0 && (
+                  <ul style={{ listStyle: "none", padding: 0, margin: "1.8rem 0", display: "grid", gap: "1rem" }}>
+                    {nextEvent.schedule.map((s) => (
+                      <li key={s.time} style={{ display: "flex", gap: "1.1rem", alignItems: "baseline" }}>
+                        <span style={{ fontWeight: 700, color: "var(--bosque)", minWidth: "6.5rem", whiteSpace: "nowrap" }}>
+                          {s.time}
+                        </span>
+                        <span style={{ color: "var(--corteza)" }}>{s.activity}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
-                <p style={{ fontStyle: "italic", color: "var(--corteza)" }}>{nextEvent.note}</p>
+                {nextEvent.topics && nextEvent.topics.length > 0 && (
+                  <>
+                    <p style={{ fontWeight: 700, color: "var(--bosque)", margin: "1.8rem 0 0.8rem" }}>
+                      Temas que abordaremos
+                    </p>
+                    <ul style={{ listStyle: "none", padding: 0, margin: "0 0 0.4rem", display: "grid", gap: "0.7rem" }}>
+                      {nextEvent.topics.map((t) => (
+                        <li key={t} style={{ display: "flex", gap: "0.8rem", alignItems: "baseline", color: "var(--corteza)" }}>
+                          <span style={{ color: "var(--acento)", fontWeight: 700 }}>·</span>
+                          <span>{t}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+
+                <p style={{ fontStyle: "italic", color: "var(--corteza)", marginTop: "1.4rem" }}>{nextEvent.note}</p>
 
                 <a
                   href={`${contacto.whatsapp}&text=${encodeURIComponent(
-                    "Hola, quiero asistir a las Jornadas de Reforestación del domingo 21."
+                    `Hola, quiero asistir a ${nextEvent.title} (${nextEvent.date}).`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -116,6 +137,47 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* ── VISITAS GUIADAS ── */}
+      <section className="nb-section" style={{ background: "var(--bosque)", color: "#f4f1ea" }}>
+        <div className="nb-wrap">
+          <Reveal>
+            <div style={{ textAlign: "center", maxWidth: "44rem", margin: "0 auto" }}>
+              <SectionLabel>{recurringVisits.title}</SectionLabel>
+              <h2 style={{ fontSize: "clamp(1.8rem,3.5vw,2.6rem)", marginTop: "0.6rem", color: "#f4f1ea" }}>
+                {recurringVisits.days}
+              </h2>
+              <p style={{ fontSize: "1.3rem", fontWeight: 700, marginTop: "0.8rem", color: "#f4f1ea" }}>
+                🕗 {recurringVisits.time}
+              </p>
+              <p style={{ marginTop: "0.6rem", color: "rgba(244,241,234,0.82)" }}>
+                📍 {recurringVisits.place}
+              </p>
+              <div className="nb-actions" style={{ justifyContent: "center", marginTop: "2rem" }}>
+                <a
+                  href={`${contacto.whatsapp}&text=${encodeURIComponent(
+                    "Hola, me gustaría visitar el Senderito en una de las visitas guiadas de martes o jueves."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nb-btn nb-btn-acento"
+                >
+                  Quiero visitar
+                </a>
+                <a
+                  href={recurringVisits.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nb-btn nb-btn-ghost"
+                  style={{ color: "#f4f1ea", borderColor: "rgba(244,241,234,0.5)" }}
+                >
+                  Ver en Instagram
+                </a>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ── SECCIÓN 2: ¿Por qué importa? ── */}
       <section className="nb-section">

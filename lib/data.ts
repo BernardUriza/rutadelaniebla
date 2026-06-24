@@ -298,14 +298,32 @@ export type EventItem = {
   date: string;
   isoDate: string;
   place: string;
-  schedule: { time: string; activity: string }[];
+  schedule?: { time: string; activity: string }[];
+  topics?: string[];
   note: string;
   image: string;
   flyer: string;
 };
 
 // Próximas actividades del Senderito. Contenido enviado por Leticia (Ruta de la Niebla).
+// La home muestra el próximo evento por fecha (lib `nextEvent`), no por posición.
 export const events: EventItem[] = [
+  {
+    id: "sexto-foro-ambiental-2026",
+    title: "Sexto Foro Ambiental",
+    occasion: "El Coatepec que queremos",
+    date: "1 y 2 de agosto de 2026",
+    isoDate: "2026-08-01",
+    place: "Centro Cultural de Coatepec",
+    topics: [
+      "Conservación del Cerro de las Culebras (Santuario de aves)",
+      "Imagen urbana: cableado y basura",
+      "Vialidad y señalización",
+    ],
+    note: "Convocan Ruta de la Niebla A.C. y Aliados por la Conservación. Información: 2287 54 00 70.",
+    image: "/galeria/mirador-valle.jpg",
+    flyer: "/eventos/sexto-foro-ambiental-2026.jpg",
+  },
   {
     id: "jornada-reforestacion-2026",
     title: "Jornadas de Reforestación 2026",
@@ -323,6 +341,16 @@ export const events: EventItem[] = [
     flyer: "/eventos/jornada-reforestacion-2026.jpg",
   },
 ];
+
+// Visitas guiadas recurrentes. Difundidas por Leticia (Ruta de la Niebla).
+export const recurringVisits = {
+  title: "Visitas guiadas",
+  days: "Todos los martes y jueves",
+  time: "8:30 – 9:30 hrs",
+  place:
+    "Terraza Panorámica · Parque Temático Senderito del Bosque de Niebla, Cerro de las Culebras",
+  source: "https://www.instagram.com/reel/DN3ATfu2v-w/",
+};
 
 export const galleryCategories = [
   { id: "bosque", label: "Bosque", cls: "tile-bosque" },
