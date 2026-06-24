@@ -245,6 +245,18 @@
   background: linear-gradient(transparent, rgba(20,33,26,0.65)); width: 100%;
 }
 
+/* Cartel del evento: se muestra completo, sin recortar, a cualquier proporción */
+.nb-flyer-link { display: block; }
+.nb-flyer {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 12px 34px rgba(20, 33, 26, 0.18);
+}
+
 /* ---------- Cifras ---------- */
 .nb-stats { background: var(--bosque); color: var(--hueso); }
 .nb-stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; text-align: center; }

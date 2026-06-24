@@ -73,11 +73,17 @@ export default function Home() {
 
             <div className="nb-two-col">
               <Reveal>
-                <a href={nextEvent.flyer} target="_blank" rel="noopener noreferrer" aria-label="Ver el cartel completo">
-                  <div
-                    className="nb-figure"
-                    style={{ backgroundImage: `url('${nextEvent.flyer}')`, aspectRatio: "10 / 16" }}
-                    data-caption="Cartel · Ruta de la Niebla A.C."
+                <a
+                  href={nextEvent.flyer}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver el cartel completo"
+                  className="nb-flyer-link"
+                >
+                  <img
+                    src={nextEvent.flyer}
+                    alt={`Cartel · ${nextEvent.title}`}
+                    className="nb-flyer"
                   />
                 </a>
               </Reveal>
