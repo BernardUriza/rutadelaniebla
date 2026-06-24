@@ -80,11 +80,27 @@ export default async function Page(
               );
             }
             if (b.type === "video") {
+              const isLocal = b.url.startsWith("/") || b.url.endsWith(".mp4");
               return (
                 <Reveal key={i}>
-                  <div style={{ margin: "2.8rem 0" }}>
-                    <YouTubeEmbed url={b.url} title={b.title} />
-                  </div>
+                  <figure style={{ margin: "2.8rem 0" }}>
+                    {isLocal ? (
+                      <video
+                        src={b.url}
+                        controls
+                        playsInline
+                        preload="metadata"
+                        style={{ width: "100%", display: "block", borderRadius: "10px", background: "#000" }}
+                      />
+                    ) : (
+                      <YouTubeEmbed url={b.url} title={b.title} />
+                    )}
+                    {b.title && (
+                      <figcaption style={{ marginTop: "0.7rem", fontSize: "0.85rem", color: "var(--corteza)" }}>
+                        {b.title}
+                      </figcaption>
+                    )}
+                  </figure>
                 </Reveal>
               );
             }

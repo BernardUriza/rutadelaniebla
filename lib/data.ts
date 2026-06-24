@@ -405,6 +405,54 @@ export type BlogPost = {
 
 export const posts: BlogPost[] = [
   {
+    slug: "estela-coatepec-hallazgo-arqueologico",
+    title: "La Estela Coatepec: un hallazgo que podría reescribir la historia prehispánica de la región",
+    excerpt:
+      "El INAH hizo público el hallazgo de un asentamiento prehispánico de grandes dimensiones en Coatepec, con una estela de más de tonelada y media. Los expertos lo llaman uno de los descubrimientos más significativos de las últimas décadas.",
+    author: "Ruta de la Niebla A.C.",
+    date: "24 de junio de 2026",
+    isoDate: "2026-06-24",
+    tag: "Patrimonio",
+    cover: "/blog/estela-coatepec.jpg",
+    body: [
+      {
+        type: "p",
+        text: "El Instituto Nacional de Antropología e Historia hizo público un hallazgo arqueológico en Coatepec que ya se describe como único y trascendental: vestigios que apuntan a un asentamiento humano de grandes dimensiones en lo que hoy es el pueblo mágico, en el mismo municipio que resguarda el Cerro de las Culebras y el Senderito del Bosque de Niebla.",
+      },
+      {
+        type: "p",
+        text: "Lo extraordinario, explican, es que el sitio presenta características que no se habían encontrado antes: no existe bibliografía previa sobre lo que apareció en Coatepec. Por eso se plantea que el descubrimiento podría cambiar la narrativa oficial sobre la presencia prehispánica en la región y en el país.",
+      },
+      {
+        type: "quote",
+        text: "Es uno de los hallazgos más significativos de las últimas décadas. Tiene que haber un museo de sitio a la altura de este descubrimiento, para usufructo y asombro de todos: no solo de quienes vivimos en la región, sino de todos los mexicanos, porque esto le pertenece a todos.",
+        cite: "Adrián González Naveda, diputado federal",
+      },
+      {
+        type: "video",
+        url: "/blog/estela-coatepec-reel.mp4",
+        title: "El hallazgo de la Estela Coatepec, narrado por el diputado Adrián González Naveda.",
+      },
+      {
+        type: "p",
+        text: "La pieza central es una estela de más de tonelada y media, bautizada como «Estela Coatepec», que comenzó a aparecer en las primeras imágenes públicas del sitio. En ellas se alcanzan a distinguir los relieves tallados en la piedra, todavía entre la tierra de la excavación.",
+      },
+      {
+        type: "image",
+        src: "/blog/estela-coatepec-excavacion.jpg",
+        caption: "La Estela Coatepec, resguardada en sitio, examinada por el equipo de arqueólogos.",
+      },
+      {
+        type: "p",
+        text: "Los siguientes pasos son técnicos: se realizarán pruebas de carbono 14 para datar el asentamiento con precisión. Los cálculos preliminares lo ubican alrededor del año 500 de nuestra era, en su máximo esplendor. El trabajo está a cargo de un equipo de jóvenes arqueólogos, orientados por algunos de los mejores especialistas del país.",
+      },
+      {
+        type: "p",
+        text: "Para el Senderito, la noticia es una razón más para mirar con cuidado el territorio de Coatepec: el mismo paisaje de niebla, cerro y memoria que hoy se reforesta guarda también capas de historia que apenas empiezan a salir a la luz. Conservar el bosque y conservar el patrimonio son, al final, la misma tarea.",
+      },
+    ],
+  },
+  {
     slug: "no-me-dejes-plantado-adopta-un-arbol",
     title: "«No me dejes plantado»: adopta un árbol del Senderito",
     excerpt:
