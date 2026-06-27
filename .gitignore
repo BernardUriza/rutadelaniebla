@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .media/
+
+# scratch video frames (deliverables como el guion sí se commitean; los frames no)
+scratch_video/frames/
