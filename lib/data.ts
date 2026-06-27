@@ -405,6 +405,56 @@ export type BlogPost = {
 
 export const posts: BlogPost[] = [
   {
+    slug: "campana-biodiversidad-bosque-de-niebla",
+    title: "Un recorrido por el bosque de niebla: el video de la campaña por la biodiversidad del Cerro de las Culebras",
+    excerpt:
+      "Ruta de la Niebla A.C. comparte el video de su campaña por la biodiversidad del bosque de niebla: un recorrido por el Cerro de las Culebras, su fauna y su gente, y el llamado a rescatar esta reserva ecológica de la sierra central veracruzana.",
+    author:
+      "Ruta de la Niebla A.C. · guion Leticia Arriaga Stransky · edición Xanath Becerra Arriaga",
+    date: "26 de junio de 2026",
+    isoDate: "2026-06-26",
+    tag: "Conservación",
+    cover: "/blog/senderito-bosque-niebla.jpg",
+    body: [
+      {
+        type: "p",
+        text: "Existen en el mundo ámbitos naturales privilegiados que es indispensable conservar y proteger para el bienestar del planeta. Uno de los que más atención merece, por las amenazas que enfrenta, es el bosque mesófilo de montaña —o bosque de niebla—, que preserva la vida de numerosas especies. En la sierra central veracruzana aún existen remanentes de este extraordinario ecosistema, que ofrece valiosos servicios ambientales a la región de Xalapa, Coatepec y Xico.",
+      },
+      {
+        type: "p",
+        text: "Con esa convicción nació la campaña por la biodiversidad del bosque de niebla, cuyo objetivo es concientizar a la población y a las autoridades sobre la importancia de rescatar y dignificar la reserva ecológica del Cerro de las Culebras, que forma parte del corredor de montaña de la sierra central veracruzana.",
+      },
+      {
+        type: "video",
+        url: "/blog/sendero-bosque-niebla.mp4",
+        title:
+          "El bosque de niebla del Cerro de las Culebras, narrado en la campaña por su biodiversidad. Guion de Leticia Arriaga Stransky; edición de Xanath Becerra Arriaga.",
+      },
+      {
+        type: "p",
+        text: "Este pequeño cono volcánico representa un importante pulmón para Coatepec, además de su memoria histórica, sus orígenes y su identidad. Pero también es un oasis para las aves —residentes y migratorias— que año con año llegan aquí para abastecerse y continuar su viaje hacia el norte o el sur del continente.",
+      },
+      {
+        type: "image",
+        src: "/blog/senderito-cerro-culebras-aerea.jpg",
+        caption: "El Cerro de las Culebras visto desde el aire: el cono volcánico de bosque, junto a Coatepec.",
+      },
+      {
+        type: "p",
+        text: "Con la visión de poner en marcha el parque temático del Cerro de las Culebras, Ruta de la Niebla A.C. logró que su proyecto «Parque Lineal Senderito del Bosque de Niebla», especializado en educación ambiental, fuera seleccionado por el Programa de Fomento Ambiental de la Secretaría del Medio Ambiente. El sendero interpretativo busca, a través del arte y el juego, despertar la conciencia de propios y visitantes sobre la importancia de conservar esta reserva y su ecosistema: un grano de arena contra el cambio climático.",
+      },
+      {
+        type: "quote",
+        text: "Nuestra participación en la conservación de los bosques es vital.",
+        cite: "Campaña por la biodiversidad del bosque de niebla · Ruta de la Niebla A.C.",
+      },
+      {
+        type: "p",
+        text: "Ruta de la Niebla A.C. hace un llamado a los empresarios a sumarse a esta iniciativa para dotar de equipamiento y señalética a lo largo del sendero. Este video es la primera parte de un recorrido que continuará: el bosque, su fauna y su gente, contados para que más personas se animen a cuidarlos.",
+      },
+    ],
+  },
+  {
     slug: "estela-coatepec-hallazgo-arqueologico",
     title: "La Estela Coatepec: un hallazgo que podría reescribir la historia prehispánica de la región",
     excerpt:
